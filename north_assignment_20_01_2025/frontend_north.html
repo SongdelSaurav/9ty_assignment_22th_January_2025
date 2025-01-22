@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar h1 {
+      font-size: 1.5rem;
+      margin: 0;
+      flex-grow: 1;
+    }
+    
+    .navbar button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    /* Collapsible Menu Styles */
+    .collapsible-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #007bff;
+      width: 200px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      z-index: 1000;
+    }
+    
+    .collapsible-menu ul {
+      list-style: none;
+      padding: 10px 0;
+    }
+    
+    .collapsible-menu ul li {
+      padding: 10px 20px;
+    }
+    
+    .collapsible-menu ul li a {
+      color: white;
+      font-size: 1rem;
+      display: block;
+    }
+    
+    .collapsible-menu ul li a:hover {
+      background-color: #0056b3;
+    }
+    
+    .menu-button.active + .collapsible-menu {
+      display: block;
+    }
+    
+    /* Main Layout */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
+      gap: 20px;
+      padding: 20px;
+      margin-top: 70px; /* Adjust for navbar height */
+    }
+    
+    .main-content {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .right-panel {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .navbar h1 {
+        font-size: 1.2rem;
+      }
+    
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .navbar h1 {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h1>Responsive Webpage</h1>
+    <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    <div class="collapsible-menu" id="collapsibleMenu">
+      <ul>
+        <li><a href="#">Menu Item 1</a></li>
+        <li><a href="#">Menu Item 2</a></li>
+        <li><a href="#">Menu Item 3</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="main-content">
+      <h1>Main Content</h1>
+      <p>This is the main content area where you can add your content.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit sem vitae lacus sagittis, at suscipit sapien tincidunt.</p>
+    </div>
+
+    <div class="right-panel">
+      <h3>Right Panel</h3>
+      <p>This is the right panel area for additional information.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Responsive Webpage. All rights reserved.
+  </div>
+
+  <script>
+    // Toggle the collapsible menu
+    function toggleMenu() {
+      const menuButton = document.querySelector('.menu-button');
+      menuButton.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
